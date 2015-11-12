@@ -1,0 +1,121 @@
+abbreviate qin qinxij@163.com
+abbreviate sina qinxij@sina.com
+abbreviate av   cocoav@sina.com
+abbreviate bd   http://www.baidu.com/
+abbreviate gg   http://www.google.com.hk/
+abbreviate git  https://github.com/
+abbreviate xk   http://xsxk.guetonline.com/student/public/login.asp
+
+
+" set focus to content when starting up
+set fc
+" set hintchars
+set hc=abcdefghijklmnopqrstuvwxyz
+
+" set hintinputs
+set hin=
+
+" set tabnumbers
+" set tn
+
+set editor=/usr/local/bin/gvim\ -f
+
+" Set gui
+set gui=noaddons,nobookmarks,nomenu,nonavigation,tabs
+
+:set nextpattern=\s*下一页|下一张|下页\s*,\bnext\b,^>$,^(>>|»)$,^(>|»),(>|»)$,\bmore\b
+:set previouspattern=\s*上一页|上一张|上页\s*,\bprev|previous\b,^<$,^(<<|«)$,^(<|«),(<|«)$
+
+noremap S sanitize!<CR>
+noremap gma :panorama add<SPACE>
+noremap gmA :panorama add!<SPACE>
+noremap gmg :panorama switch<SPACE>
+noremap gmd :panorama rm<SPACE>
+" noremap gmD :panorama rm<CR>
+noremap gmD :RemoveCurrentTabGroup<CR>
+noremap gmN :TabGroupRename<SPACE>
+noremap gms :panorama stash<SPACE>
+noremap gmS :panorama stash!<SPACE>
+noremap gml :panorama list<CR>
+noremap gmi :panorama pulltab<SPACE>
+noremap gmo :panorama pushtab<SPACE>
+noremap gmb :GoBackLastTabGroup<CR>
+" We can use <C-S-N> and <C-S-P> to switch page groups. I don't know why...
+noremap gmn <C-S-N>
+noremap gmp <C-S-P>
+noremap <C-S-L> <C-S-N>
+noremap <C-S-H> <C-S-P>
+
+nnoremap ,sp :tabnew http://docs.python.org/3.3/search.html?q=
+nnoremap ,sP :open http://docs.python.org/3.3/search.html?q=
+
+" Bookmarks
+nnoremap a a -tags=
+nnoremap l :bmarks -tags=
+
+" firebug
+" nnoremap ,ft :firebug toggle<CR>
+" nnoremap ,ff :firebug console-focus<CR>
+nnoremap ,ff :emenu View.Firebug<CR>
+
+nnoremap ,mc :js l("")<CR>
+nnoremap ,mh :js toggleMessageboard()<CR>
+
+noremap ,ev :emenu Tools.WebClipper<CR>
+noremap ,bs :emenu Tools.Session Manager.Session Manager.Load Session...<CR>
+nnoremap d D
+nnoremap D d
+map <C-j> <C-d>
+map <C-k> <C-u>
+noremap j 10j
+noremap k 10k
+inoremap <C-p> <up>
+cnoremap <C-p> <up>
+inoremap <C-n> <down>
+cnoremap <C-n> <down>
+inoremap jj <Esc>
+cnoremap jj <Esc>
+noremap ; :
+" launch context menu
+noremap : ;<SPACE><C-U>
+noremap <C-h> :tabmove -1<CR>
+noremap <C-l> :tabmove +1<CR>
+noremap gh :tabmove 0<CR>
+noremap gl :tabmove +100<CR>
+noremap gb :buffer! #<CR>
+map > g$
+map < g0
+noremap ] ]]
+noremap [ [[
+" noremap ,n :set gui+=navigation<CR>
+" noremap ,N :set gui+=nonavigation<CR>
+" noremap ,m :set gui+=menu<CR>
+" noremap ,M :set gui+=nomenu<CR>
+
+noremap ,t :tab<SPACE>
+
+noremap <C-c> :stop<CR>
+noremap <C-s> :stopall<CR>
+
+colorscheme solarized_dark
+
+set defsearch=baidu
+
+"""" Change Chinese toolbar to English.
+"" install english pack form here.
+"" http://ftp.mozilla.org/pub/mozilla.org
+"" open about:config
+"" Set general.useragent.locate to en-US
+
+noremap P :js let url = util.readFromClipboard(); liberator.assert(url); openTabOnNextOrPrevious(url, true);<CR>
+
+noremap t :openNext<SPACE>
+noremap ,p :openPrevious<SPACE>
+
+noremap ,r :restart<CR>
+
+noremap ,gn :TabGroupRename 
+
+noremap ,be :EditBaiduNavigation<CR>
+
+" vim: set ft=vim:
